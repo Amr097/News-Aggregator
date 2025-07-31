@@ -1,0 +1,49 @@
+@import "tailwindcss";
+@import "./reset.css";
+
+@theme inline {
+  --color-primary-900: var(--color-primary-900);
+  --color-primary-600: var(--color-primary-600);
+  --color-secondary-100: var(--color-secondary-100);
+  --color-secondary-200: var(--color-secondary-200);
+}
+
+@layer base {
+  :root {
+    --background: linear-gradient(
+      225deg,
+      rgb(251, 224, 219) 0%,
+      rgb(251, 224, 219, 0.85) 20%,
+      rgb(249, 244, 237) 35%,
+      rgb(249, 244, 237) 75%,
+      rgb(175, 105, 92, 0.4) 100%,
+      rgb(251, 224, 219, 0.7) 100%
+    );
+  }
+
+  .logo {
+    font-family: var(--font-logo) !important;
+    font-size: 2.25rem;
+    font-weight: 800 !important;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+}
+
+body {
+  background: var(--background);
+}
+
+body,
+p,
+span,
+ul,
+li {
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-header);
+}
