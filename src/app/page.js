@@ -1,10 +1,10 @@
 import Header from "@/components/partials/Header";
-import NewsCard from "@/components/cards/NewsCard";
+import NewsGrid from "@/features/home/newsGrid";
 export default function Home() {
   return (
     <>
       <Header />
-      <NewsCard />
+      <NewsGrid />
     </>
   );
 }
