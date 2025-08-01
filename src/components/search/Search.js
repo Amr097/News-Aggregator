@@ -4,9 +4,9 @@ import { Input } from "../ui/input";
 
 const Search = () => {
   return (
-    <div class="search-block">
+    <div className="search-block">
       <Input type="text" placeholder="Search" />
-      <div class="icon"></div>
+      <div className="icon"></div>
     </div>
   );
 };
