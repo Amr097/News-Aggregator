@@ -1,5 +1,6 @@
 import { Bitter, IBM_Plex_Sans, Jim_Nightshade } from "next/font/google";
 import "./styles/globals.css";
+import QueryProvider from "@/lib/tanstack-query/QueryClientProvider";
 
 const headerFont = Bitter({
   subsets: ["latin"],
@@ -30,7 +31,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${headerFont.variable} ${bodyFont.variable} ${logoFont.variable} antialiased`}
       >
-        {children}
+        <QueryProvider>{children}</QueryProvider>
       </body>
     </html>
   );
