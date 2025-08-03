@@ -6,10 +6,12 @@ import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 
 export default async function Home() {
   const queryClient = getQueryClient();
+
   await queryClient.prefetchQuery({
-    queryKey: ["allNews"],
+    queryKey: ["allNews", null],
     queryFn: fetchAllNews,
   });
+  console.log("page rerender");
   return (
     <>
       <Header />
