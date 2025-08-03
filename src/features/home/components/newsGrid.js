@@ -1,6 +1,6 @@
 "use client";
 
-import NewsCard from "@/components/cards/newsCard/NewsCard";
+import NewsCard from "@/features/home/components/newsCard/NewsCard";
 import { useQuery } from "@tanstack/react-query";
 import fetchNextServer from "@/services/fetchNextServer";
 import { useSearchParams } from "next/navigation";
