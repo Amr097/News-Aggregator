@@ -21,10 +21,10 @@ export const fetchAllNews = async (searchQuery) => {
       gaurdianEndpoint,
       guardianParams
     ).then((res) => res.data.response.results);
+
     const news = await fetchNewsApi(newsApiEndpoint, newsApiParams).then(
       (res) => res.data.articles
     );
-    console.log([...news, ...gaurdian]);
     return normalizeArticles([...news, ...gaurdian]);
   } catch (error) {
     throw new Error(`Failed to fetch news articles: ${error.message}`);

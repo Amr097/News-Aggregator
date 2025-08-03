@@ -26,3 +26,7 @@ export const removeKeysFromQuery = ({ params, keysToRemove }) => {
     { skipNull: true }
   );
 };
+
+export const getQueryFromUrl = (url) => {
+  return queryString.parseUrl(url).query;
+};

@@ -1,16 +1,12 @@
 import { fetchAllNews } from "@/services/fetchAllNews";
 import { NextResponse } from "next/server";
+import { getQueryFromUrl } from "@/helpers/url";
 export async function GET(request) {
-  console.log(request);
   try {
-    const { searchParams } = new URL(request.url);
-    const query = searchParams.get("q");
-    const country = searchParams.get("country");
+    const { searchQuery } = getQueryFromUrl(request.url);
+    console.log(searchQuery);
 
-    const newsData = await fetchAllNews({
-      ...(query && { q: query }),
-      country: country || "us",
-    });
+    const newsData = await fetchAllNews(searchQuery);
 
     return NextResponse.json(newsData);
   } catch (error) {

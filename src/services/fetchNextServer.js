@@ -1,8 +1,12 @@
 import axios from "axios";
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
+console.log(BASE_URL);
+
 export default async function fetchNextServer(endpoint, qp = {}) {
   try {
-    const url = new URL(endpoint, window.location.origin);
+    const url = new URL(endpoint, BASE_URL);
     const response = await axios.get(url.toString(), { params: qp });
     return response.data;
   } catch (error) {

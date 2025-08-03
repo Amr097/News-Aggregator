@@ -3,8 +3,6 @@ import axios from "axios";
 const newsApiURL = process.env.NEWSAPI_BASE_URL;
 const theGaurdianApiURL = process.env.GUARDIAN_BASE_URL;
 
-console.log(newsApiURL, theGaurdianApiURL);
-
 export const axiosNewsApiInstance = axios.create({
   baseURL: newsApiURL,
 });

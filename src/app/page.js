@@ -11,7 +11,6 @@ export default async function Home() {
     queryKey: ["allNews", null],
     queryFn: fetchAllNews,
   });
-  console.log("page rerender");
   return (
     <>
       <Header />
