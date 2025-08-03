@@ -6,8 +6,6 @@ const ImageSection = ({ newsData }) => {
   return (
     <div className="relative overflow-hidden">
       <img
-        width={400}
-        height={200}
         src={newsData.image || "/placeholder.jpg"}
         alt={newsData.title}
         className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
