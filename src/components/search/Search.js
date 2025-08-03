@@ -7,16 +7,14 @@ import React, { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 
 import { useDebounce } from "use-debounce";
-import { useQueryClient } from "@tanstack/react-query";
 
 import { formUrlQuery, removeKeysFromQuery } from "@/helpers/url";
 
 const Search = () => {
   const searchParams = useSearchParams();
-  const queryClient = useQueryClient();
 
   const [searchQuery, setSearchQuery] = useState(searchParams.get("q") || "");
-  const [debouncedSearchQuery] = useDebounce(searchQuery, 250);
+  const [debouncedSearchQuery] = useDebounce(searchQuery, 750);
   const hasUserSearched = useRef(false);
 
   useEffect(() => {
@@ -27,27 +25,22 @@ const Search = () => {
     // Skip if user hasn't searched yet
     if (!hasUserSearched.current && !query) return;
 
-    if (debouncedSearchQuery)
+    if (debouncedSearchQuery) {
       url = formUrlQuery({
         params: searchParams.toString(),
         key: "q",
         value: debouncedSearchQuery,
       });
-    else
+      if (url !== window.location.toString())
+        window.history.replaceState(null, "", url);
+    } else {
       url = removeKeysFromQuery({
         params: searchParams.toString(),
         keysToRemove: ["q"],
       });
-
-    if (url !== window.location.toString())
-      window.history.replaceState(null, "", url);
-
-    setTimeout(() => {
-      queryClient.invalidateQueries({
-        queryKey: ["allNews"],
-        exact: true,
-      });
-    }, 0);
+      if (url !== window.location.toString())
+        window.history.replaceState(null, "", url);
+    }
   }, [debouncedSearchQuery]);
 
   const handleInputChange = (e) => {
