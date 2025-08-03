@@ -49,34 +49,6 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-@layer base {
-  :root {
-    --color-primary-900: #2a2a2a;
-    --color-primary-600: #af695c;
-    --color-secondary-100: #f9f4ed;
-    --color-secondary-200: #eaeaea;
-
-    --background: linear-gradient(
-      225deg,
-      rgb(251, 224, 219) 0%,
-      rgb(251, 224, 219, 0.85) 20%,
-      rgb(249, 244, 237) 35%,
-      rgb(249, 244, 237) 75%,
-      rgb(175, 105, 92, 0.4) 100%,
-      rgb(251, 224, 219, 0.7) 100%
-    );
-  }
-
-  .logo {
-    font-family: var(--font-logo) !important;
-    font-size: 1.75rem;
-    font-weight: 800 !important;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    text-decoration: underline;
-  }
-}
-
 body,
 p,
 span,
@@ -161,10 +133,37 @@ h3 {
 }
 
 @layer base {
+  :root {
+    --color-primary-900: #2a2a2a;
+    --color-primary-600: #503b30;
+    --color-secondary-100: #f9f4ed;
+    --color-secondary-200: #eaeaea;
+
+    --gradient: linear-gradient(
+      225deg,
+      rgba(80, 59, 48) 0%,
+      rgba(42, 42, 42, 255) 30%,
+      rgba(42, 42, 42, 255) 35%,
+      rgba(42, 42, 42, 255) 85%,
+
+      rgba(80, 59, 48) 100%
+    );
+  }
+
   * {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    background: var(--gradient);
+  }
+
+  .logo {
+    font-family: var(--font-logo) !important;
+    font-size: 1.4rem;
+    font-weight: 800 !important;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-secondary-100);
   }
 }

@@ -52,7 +52,7 @@ const Search = () => {
     <div className="search-block">
       <Input
         type="text"
-        placeholder="Search"
+        placeholder="What are you looking for?"
         value={searchQuery}
         onChange={handleInputChange}
       />
