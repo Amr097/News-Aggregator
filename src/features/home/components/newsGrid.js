@@ -2,11 +2,12 @@
 
 import NewsCard from "@/components/cards/newsCard/NewsCard";
 import { useQuery } from "@tanstack/react-query";
+import { fetchAllNews } from "@/services/fetchAllNews";
 
 export default function NewsGrid() {
   const { data: newsItems } = useQuery({
     queryKey: ["allNews"],
-    queryFn: async () => {},
+    queryFn: fetchAllNews,
   });
 
   return (
