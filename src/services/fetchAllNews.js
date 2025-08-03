@@ -26,7 +26,11 @@ export const fetchAllNews = async (searchQuery) => {
       (res) => res.data.articles
     );
     return normalizeArticles([...news, ...gaurdian]);
-  } catch (error) {
-    throw new Error(`Failed to fetch news articles: ${error.message}`);
+  } catch (err) {
+    const error = new Error(`fetch failed: ${err.message || "Unknown error"}`);
+    error.statusCode = err.response?.status || err.statusCode || 503;
+    error.statusText = err.response?.statusText || "Service Unavailable";
+    error.data = err.response?.data || null;
+    throw error;
   }
 };

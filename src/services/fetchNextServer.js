@@ -11,6 +11,10 @@ export default async function fetchNextServer(endpoint, qp = {}) {
     return response.data;
   } catch (error) {
     console.error("Fetch error:", error);
-    throw new Error(`Failed to fetch data from ${endpoint}: ${error.message}`);
+    throw new Error(
+      `Failed to fetch data from ${endpoint}: ${
+        error.response?.data?.message || error.message
+      }`
+    );
   }
 }

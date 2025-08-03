@@ -10,10 +10,9 @@ export async function GET(request) {
 
     return NextResponse.json(newsData);
   } catch (error) {
-    console.error("API Error:", error);
     return NextResponse.json(
-      { error: "Failed to fetch news" },
-      { status: 500 }
+      { message: error?.data?.message || "Failed to fetch news" },
+      { status: error.statusCode || 500 }
     );
   }
 }
