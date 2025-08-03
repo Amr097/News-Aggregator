@@ -1,12 +1,12 @@
 import axios from "axios";
 
 export default async function fetchNextServer(endpoint, qp = {}) {
-  console.log(endpoint);
-  const url = new URL(endpoint, window.location.origin);
-  console.log(url.toString(), qp);
-  const res = axios.get(url.toString(), { params: qp }).then((response) => {
-    console.log(response);
+  try {
+    const url = new URL(endpoint, window.location.origin);
+    const response = await axios.get(url.toString(), { params: qp });
     return response.data;
-  });
-  return res;
+  } catch (error) {
+    console.error("Fetch error:", error);
+    throw new Error(`Failed to fetch data from ${endpoint}: ${error.message}`);
+  }
 }

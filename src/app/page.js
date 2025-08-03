@@ -1,5 +1,5 @@
 import Header from "@/components/partials/Header";
-import NewsGrid from "@/features/home/components/newsGrid";
+import NewsGrid from "@/features/home/components/NewsGrid";
 import { fetchAllNews } from "@/services/fetchAllNews";
 import { getQueryClient } from "@/lib/tanstack-query/getQueryClient";
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
