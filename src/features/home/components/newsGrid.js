@@ -4,18 +4,21 @@ import NewsCard from "@/features/home/components/newsCard/NewsCard";
 import { useQuery } from "@tanstack/react-query";
 import fetchNextServer from "@/services/fetchNextServer";
 import { useSearchParams } from "next/navigation";
+import GridSkeleton from "./GridSkeleton";
 
 export default function NewsGrid() {
   const searchParams = useSearchParams();
   const params = new URLSearchParams(searchParams.toString());
   const query = params.get("q");
 
-  const { data: newsItems } = useQuery({
+  const { data: newsItems, isLoading } = useQuery({
     queryKey: ["allNews", query],
     queryFn: () =>
       fetchNextServer(`/api/news`, {
         searchQuery: query,
       }),
+    suspense: true,
+    throwOnError: true,
   });
 
   console.log(newsItems);
