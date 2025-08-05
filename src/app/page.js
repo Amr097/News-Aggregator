@@ -3,6 +3,8 @@ import NewsGrid from "@/features/home/components/newsGrid";
 import { fetchAllNews } from "@/services/fetchAllNews";
 import { getQueryClient } from "@/lib/tanstack-query/getQueryClient";
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
+import { Suspense } from "react";
+import GridSkeleton from "@/features/home/components/GridSkeleton";
 
 export default async function Home() {
   const queryClient = getQueryClient();
@@ -19,7 +21,9 @@ export default async function Home() {
       <Header />
       {/* Provide the pre-fetched data to the client */}
       <HydrationBoundary state={dehydrate(queryClient)}>
-        <NewsGrid />
+        <Suspense>
+          <NewsGrid />
+        </Suspense>
       </HydrationBoundary>
     </>
   );
