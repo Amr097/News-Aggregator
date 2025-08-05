@@ -11,6 +11,8 @@ export default async function Home() {
   await queryClient.prefetchQuery({
     queryKey: ["allNews", null],
     queryFn: fetchAllNews,
+    staleTime: Infinity,
+    gcTime: Infinity,
   });
   return (
     <>
