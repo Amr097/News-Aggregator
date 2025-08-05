@@ -5,8 +5,7 @@ export async function GET(request) {
   try {
     const { searchQuery } = getQueryFromUrl(request.url);
 
-    const newsData = fetchAllNews(searchQuery);
-
+    const newsData = await fetchAllNews(searchQuery);
     return NextResponse.json(newsData);
   } catch (error) {
     return NextResponse.json(
