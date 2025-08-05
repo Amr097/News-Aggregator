@@ -6,7 +6,7 @@ Beyond Creation is a modern **Next.js** web app that aggregates news from multip
 
 ## Documentation
 
-### 🔗User Story: [User Story Link](https://www.notion.so/Beyond-Creation-Task-News-Aggregator-23f7bf91b25b80129238d6724573054e)
+### 🔗User Story: <a href="https://www.notion.so/Beyond-Creation-Task-News-Aggregator-23f7bf91b25b80129238d6724573054e" target="_blank">User Story Link</a>
 
 ### Sequence Diagrams
 
