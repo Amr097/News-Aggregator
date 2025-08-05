@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 📰 Beyond Creation – News Aggregator
 
-## Getting Started
+Beyond Creation is a modern **Next.js** web app that aggregates news from multiple sources like **NewsAPI** and **The Guardian**, giving users a unified feed of the latest headlines and real-time search capabilities.
 
-First, run the development server:
+---
+
+## 📚 Documentation
+
+### 🔗User Story: [User Story Link](https://www.notion.so/Beyond-Creation-Task-News-Aggregator-23f7bf91b25b80129238d6724573054e)
+
+### 🖼️ Sequence Diagrams
+
+#### 🔸 Initial Load
+
+![Initial Load Flow](./sequence/intialLoadSequence.png)
+
+---
+
+#### 🔸 User Search Flow
+
+![Search Sequence](./sequence/SearchSequence.png)
+
+---
+
+## Tech Stack
+
+- **Framework:** Next.js 14
+- **Styling:** Tailwind CSS
+- **Animation:** GSAP
+- **Data Fetching:** `@tanstack/react-query`
+- **API Sources:** [NewsAPI.org](https://newsapi.org) & [The Guardian Open Platform](https://open-platform.theguardian.com/)
+
+---
+
+## 📦 Installation & Setup
 
 ```bash
+# 1. Clone the repo
+git clone https://github.com/your-username/beyond-creation.git
+cd beyond-creation
+
+# 2. Install dependencies
+npm install
+
+# 3. Add environment variables
+touch .env.local
+
+# Test API Keys
+NEWS_API_KEY=b5e6f03148e749798ba6d6039411a020
+GUARDIAN_API_KEY=2229aafb-48e2-40b5-86f1-f133b9b90073
+
+# URLS
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
+NEWSAPI_BASE_URL=https://newsapi.org/v2/
+GUARDIAN_BASE_URL=https://content.guardianapis.com
+
+
+# 4. Run the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
