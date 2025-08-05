@@ -4,19 +4,19 @@ Beyond Creation is a modern **Next.js** web app that aggregates news from multip
 
 ---
 
-## 📚 Documentation
+## Documentation
 
 ### 🔗User Story: [User Story Link](https://www.notion.so/Beyond-Creation-Task-News-Aggregator-23f7bf91b25b80129238d6724573054e)
 
-### 🖼️ Sequence Diagrams
+### Sequence Diagrams
 
-#### 🔸 Initial Load
+#### Initial Load
 
 ![Initial Load Flow](./sequence/intialLoadSequence.png)
 
 ---
 
-#### 🔸 User Search Flow
+#### User Search Flow
 
 ![Search Sequence](./sequence/SearchSequence.png)
 
@@ -32,12 +32,12 @@ Beyond Creation is a modern **Next.js** web app that aggregates news from multip
 
 ---
 
-## 📦 Installation & Setup
+## Installation & Setup
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/your-username/beyond-creation.git
-cd beyond-creation
+git https://github.com/Amr097/News-Aggregator.git
+
 
 # 2. Install dependencies
 npm install
