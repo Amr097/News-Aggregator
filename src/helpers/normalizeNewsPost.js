@@ -36,5 +36,7 @@ function generateId(url) {
 }
 
 export function normalizeArticles(articles) {
-  return articles.map((article) => normalizeNewsArticle(article));
+  return articles
+    .map((article) => normalizeNewsArticle(article))
+    .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
 }
