@@ -10,10 +10,12 @@ import { useEffect } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function NewsGrid() {
+  // Get current query from the URL
   const searchParams = useSearchParams();
   const params = new URLSearchParams(searchParams.toString());
   const query = params.get("q");
 
+  // Fetch news data based as query changes using via server proxy endpoint
   const { data: newsItems, isLoading } = useQuery({
     queryKey: ["allNews", query],
     queryFn: () =>

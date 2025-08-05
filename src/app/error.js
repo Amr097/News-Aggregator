@@ -9,7 +9,6 @@ export default function Error({ error, reset }) {
     queryClient.removeQueries();
     reset();
   };
-  console.log(error.data);
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="text-center p-8 flex flex-col gap-2 items-center bg-white shadow-lg rounded-lg max-w-md w-full">

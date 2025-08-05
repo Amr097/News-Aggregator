@@ -10,12 +10,16 @@ function createQueryClient() {
   });
 }
 
+// Variable to store query client instance outside of render cycle
 let browserQueryClient;
 
+//Return the appropriate QueryClient based on the environment
 function getQueryClient() {
   if (isServer) {
+    // Create a new instance for server-side to aviod dehydration issues
     return createQueryClient();
   } else {
+    // If a query client instance already exists, return
     if (!browserQueryClient) browserQueryClient = createQueryClient();
 
     return browserQueryClient;

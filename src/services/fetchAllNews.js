@@ -2,6 +2,13 @@ import fetchTheGaurdianApi from "./fetchTheGaurdianApi";
 import fetchNewsApi from "./fetchNewsApi";
 import { normalizeArticles } from "@/helpers/normalizeNewsPost";
 
+/**
+ * Fetches articles from both The Guardian API and NewsAPI,
+ * merges and normalizes them into a common format.
+ * @param {string} searchQuery - Optional search query to filter news.
+ * @returns {Array} An array of normalized news articles.
+ */
+
 export const fetchAllNews = async (searchQuery) => {
   try {
     const gaurdianEndpoint = "/search";
@@ -17,15 +24,23 @@ export const fetchAllNews = async (searchQuery) => {
       country: "us",
     };
 
-    const gaurdian = await fetchTheGaurdianApi(
-      gaurdianEndpoint,
-      guardianParams
-    ).then((res) => res.data.response.results);
+    // Run both requests concurrently
+    const [guardianResult, newsResult] = await Promise.allSettled([
+      fetchTheGaurdianApi(gaurdianEndpoint, guardianParams),
+      fetchNewsApi(newsApiEndpoint, newsApiParams),
+    ]);
 
-    const news = await fetchNewsApi(newsApiEndpoint, newsApiParams).then(
-      (res) => res.data.articles
-    );
-    return normalizeArticles([...news, ...gaurdian]);
+    // Extract results only if fulfilled
+    const guardianArticles =
+      guardianResult.status === "fulfilled"
+        ? guardianResult.value.data.response.results
+        : [];
+
+    const newsArticles =
+      newsResult.status === "fulfilled" ? newsResult.value.data.articles : [];
+
+    // Combine and normalize
+    return normalizeArticles([...newsArticles, ...guardianArticles]);
   } catch (err) {
     const error = new Error(`fetch failed: ${err.message || "Unknown error"}`);
     error.statusCode = err.response?.status || err.statusCode || 503;

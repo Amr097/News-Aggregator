@@ -11,7 +11,7 @@ const ContentSection = ({ newsData }) => {
       <CardDescription className="text-[#2a2a2a]/80 text-sm leading-relaxed line-clamp-3 mb-4">
         {newsData.content}
       </CardDescription>
-
+      {/* Footer Section */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2 text-sm text-[#af695c]">
           <Calendar className="w-4 h-4" />

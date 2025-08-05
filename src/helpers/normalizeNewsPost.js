@@ -35,6 +35,7 @@ function generateId(url) {
   );
 }
 
+//Return sorted by publish date normalized articles
 export function normalizeArticles(articles) {
   return articles
     .map((article) => normalizeNewsArticle(article))
