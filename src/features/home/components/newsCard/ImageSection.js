@@ -5,7 +5,10 @@ import { Badge } from "@/components/ui/badge";
 const ImageSection = ({ newsData }) => {
   return (
     <div className="relative overflow-hidden">
-      <img
+      <Image
+        width={500}
+        height={300}
+        unoptimized
         src={newsData.image || "/placeholder.jpg"}
         alt={newsData.title}
         className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
